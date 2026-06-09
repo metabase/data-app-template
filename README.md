@@ -1,4 +1,4 @@
-# metabase-data-app-template
+# data-app-template
 
 Starter template for building Metabase **data-apps** — single-bundle
 React apps that admins upload and embed inside Metabase via an isolated
@@ -10,7 +10,7 @@ instead of generated file-by-file; humans can also clone it directly via
 ## Quick start
 
 ```bash
-gh repo create my-data-app --template metabase/metabase-data-app-template --private --clone
+gh repo create my-data-app --template metabase/data-app-template --private --clone
 cd my-data-app
 npm install                           # or yarn / pnpm / bun — no lockfile shipped
 cp .env.local.example .env.local      # set VITE_MB_URL + VITE_MB_API_KEY
