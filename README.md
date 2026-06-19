@@ -45,7 +45,7 @@ and prod. The two modes only diverge at the entry layer.
 ## Calling external APIs (`allowed_hosts`)
 
 A data app runs sandboxed: by default it **can't** `fetch`/XHR anything. To let
-it reach an external API, list the origins in `data_app.yml` under
+it reach an external API, list the origins in `data_app.yaml` under
 `allowed_hosts` (supports a `*.` subdomain wildcard):
 
 ```yaml
