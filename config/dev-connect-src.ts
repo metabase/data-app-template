@@ -36,10 +36,11 @@ function toOrigin(url: string | undefined): string | undefined {
   if (!url) {
     return undefined;
   }
+
   try {
     return new URL(url).origin;
   } catch {
-    return url;
+    return undefined;
   }
 }
 
