@@ -41,3 +41,20 @@ Admin → Embedding → Embedded analytics SDK → CORS.
 
 `src/App.tsx` and anything you add under `src/` is shared between dev
 and prod. The two modes only diverge at the entry layer.
+
+## Calling external APIs (`allowed_hosts`)
+
+A data app runs sandboxed: by default it **can't** `fetch`/XHR anything. To let
+it reach an external API, list the origins in `data_app.yaml` under
+`allowed_hosts` (supports a `*.` subdomain wildcard):
+
+```yaml
+allowed_hosts:
+  - https://api.example.com
+  - https://*.internal.acme.com
+```
+
+The same allowlist is enforced in both places: `npm run dev` applies it via the
+dev server's CSP, and Metabase applies it via the iframe CSP + the membrane
+sandbox. The Metabase instance itself is reached through the SDK (not listed
+here). A call to any other host fails in dev exactly as it will in production.
